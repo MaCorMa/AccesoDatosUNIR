@@ -1,20 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="03b79be5-eb68-4786-95d3-f0a1cae4d0a5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/inicial.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entrada.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../inicial-mv/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../inicial-mv/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../inicial-mv/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../inicial-mv/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../inicial-mv/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../inicial-mv/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../inicial-mv/src/main/java/Entrada.java" beforeDir="false" />
-    </list>
+    <list default="true" id="03b79be5-eb68-4786-95d3-f0a1cae4d0a5" name="Changes" comment="segundo commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,6 +30,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
@@ -58,6 +49,28 @@
       <option name="presentableId" value="Default" />
       <updated>1726420668024</updated>
     </task>
+    <task id="LOCAL-00001" summary="Primer commit">
+      <option name="closed" value="true" />
+      <created>1726420946038</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1726420946038</updated>
+    </task>
+    <task id="LOCAL-00002" summary="segundo commit">
+      <option name="closed" value="true" />
+      <created>1726420964193</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1726420964193</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Primer commit" />
+    <MESSAGE value="segundo commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="segundo commit" />
   </component>
 </project>
