@@ -1,14 +1,13 @@
-import javax.imageio.IIOException;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class GestorFicheros {
+public class GestorFicherosLectura {
 
     public static void main(String[] args) {
-        GestorFicheros gestorFicheros = new GestorFicheros();
-        gestorFicheros.lecturaTextoPlano("src/resources/lectura.txt");
+        GestorFicherosLectura gestorFicherosLectura = new GestorFicherosLectura();
+        gestorFicherosLectura.lecturaTextoPlano("src/resources/lectura.txt");
     }
 
     public void lecturaTextoPlano(String path) {
