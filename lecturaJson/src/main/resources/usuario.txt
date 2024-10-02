@@ -1,0 +1,8 @@
+{
+    "nombre":"Manuel",
+    "apellido":"Correcher",
+    "edad": "32",
+    "asignaturas": ["ad", "pmdm", "di"]
+}
+/*empieza con {} → JSONObject*/
+/*empieza con [] → JSONArray*/
