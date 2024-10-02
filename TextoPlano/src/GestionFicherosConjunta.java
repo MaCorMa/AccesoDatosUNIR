@@ -1,7 +1,4 @@
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
 
@@ -10,7 +7,23 @@ public class GestionFicherosConjunta {
     public static void main(String[] args){
 
         GestionFicherosConjunta gestionFicherosConjunta = new GestionFicherosConjunta();
-        GestionFicherosConjunta.cifrado("src/resources/escritura.txt");
+        String path = ("src/resources/cifrado.txt");
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Indica qué quieres hacer.");
+        System.out.println("1. Cifrar");
+        System.out.println("2. Descifrar");
+        int opcion = scanner.nextInt();
+
+        switch (opcion){
+            case 1:
+                gestionFicherosConjunta.cifrado(path);
+                break;
+            case 2:
+                gestionFicherosConjunta.descifrado(path);
+                break;
+        }
+
     }
 
     public static void lecturaEscritura(String path){
@@ -30,7 +43,7 @@ public class GestionFicherosConjunta {
                 //fileWriter.write(letra+"\n");
                 int codigo = (int) letra;
                 //System.out.println("codigo= "+ codigo);
-                fileWriter.write(String.valueOf(codigo * 5 + "\n"));
+                fileWriter.write(String.valueOf(codigo * fase + "\n"));
             }
         } catch (IOException e) {
             System.out.println("Error en los permisos");
@@ -42,7 +55,7 @@ public class GestionFicherosConjunta {
             }
         }
     }
-    public static void cifrado(String path){
+    public void cifrado(String path){
         Scanner scanner = new Scanner(System.in);
         File file = new File(path);
         FileWriter fileWriter = null;
@@ -59,7 +72,7 @@ public class GestionFicherosConjunta {
                 //fileWriter.write(letra+"\n");
                 int codigo = (int) letra;
                 //System.out.println("codigo= "+ codigo);
-                fileWriter.write(String.valueOf(codigo * 5 + "\n"));
+                fileWriter.write(String.valueOf(codigo * fase + "\n"));
             }
         } catch (IOException e) {
             System.out.println("Error en los permisos");
@@ -72,8 +85,29 @@ public class GestionFicherosConjunta {
         }
     }
 
-    public static void desdifrado(String path){
-        
+    public void descifrado(String path){
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Por favor indica la fase de cifrado del mensaje");
+        int fase = scanner.nextInt();
+
+        File file = new File(path);
+        BufferedReader br = null;
+
+        try{
+            br = new BufferedReader(new FileReader(file));
+            String lectura = null;
+            while(((lectura)= br.readLine())!=null){
+                //lectura
+                //System.out.println(lectura);
+                int codigo = Integer.valueOf(lectura);
+                System.out.println((char)(codigo/fase));
+            }
+            System.out.println("\n");
+        } catch (IOException e) {
+            System.out.println("Fallo al leer");
+        }
+
     }
 }
 
