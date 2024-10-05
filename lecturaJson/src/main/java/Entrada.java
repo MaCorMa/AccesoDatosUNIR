@@ -2,14 +2,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.*;
+import java.net.MalformedURLException;
 
 public class Entrada {
 
-    public static void main(String []args){
+    public static void main(String []args) throws MalformedURLException {
 
-        File file = new File("src/main/resources/usuario.txt");
+       /* File file = new File("src/main/resources/usuario.txt");
         //txt → JSON
-        BufferedReader bufferedReader = null;
+       BufferedReader bufferedReader = null;
 
         try {
             bufferedReader = new BufferedReader(new FileReader(file));
@@ -43,7 +44,12 @@ public class Entrada {
             } catch (IOException | NullPointerException e) {
                 System.out.println("Error en el cerrado");
             }
-        }
+        }*/
+
+        //PeticionJSON
+        PeticionJSON peticionJSON = new PeticionJSON();
+        peticionJSON.procesarPeticion();
+
 
     }
 }
