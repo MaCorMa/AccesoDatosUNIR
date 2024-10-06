@@ -1,3 +1,5 @@
+import com.google.gson.Gson;
+import model.Product;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -73,10 +75,16 @@ public class PeticionJSON {
             try{
                 bufferedWriter = new BufferedWriter(new FileWriter(file));
                 for(Object item : listaProductos){
-                    JSONObject producto = (JSONObject) item;
-                    System.out.println(producto.toString());
-                    String exportacionProducto = producto.toString()+"\n";
-                    bufferedWriter.write(exportacionProducto);
+                    //JSONObject producto = (JSONObject) item; //sobra al usar la librería Gson
+                    //Product prod = new Product(producto.getString("title"),producto.getInt("stock"),producto.getInt("id"),producto.getDouble("price"));
+                    Product prod = new Gson().fromJson(item.toString(),Product.class); //Con un objeto de la clase Gson le pasas un String (viene de convertir el JSON a string) y le dices la clase en la que
+                    //ha de basarse, no es necesario hacer nada más.
+                    //Se puede sacar el objeto directamente sin extraer info y después tratarla
+                    //Es condición necesaria tener las características de clase privadas, tener los getter y setter y tener los mismos nombres que los parámetros del JSON
+                    //System.out.println(producto.toString());
+                    String exportacionProducto = String.format("title:%s price:%.2f stock:%d", prod.getTitle(), prod.getPrice(),prod.getStock());
+                    System.out.println(exportacionProducto);
+                    //bufferedWriter.write(exportacionProducto);
                 }
             } catch (IOException e) {
                 System.out.println("Archivo no encontrado");
