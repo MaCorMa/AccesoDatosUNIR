@@ -14,13 +14,23 @@ import java.io.Serializable;
 
 public class Producto implements Serializable {  //Necesita implementar interfaz serializable para poder guardarse/escribirse/leerse
 
+    private static final Long serialVersionUID = 12345L;
+    
     // variables - private
     private int id;
     private String title;
     private double price;
     private int stock;
 
-    //Añadiendo libreria lombok esto nbo es necesario
+    public void mostrarDatos() {
+        System.out.println("serialVersionUID = " + serialVersionUID);
+        System.out.println("id = " + id);
+        System.out.println("title = " + title);
+        System.out.println("price = " + price);
+        System.out.println("stock = " + stock);
+    }
+
+    //Añadiendo libreria lombok esto no es necesario
     // constructores
     /*
     public Producto(int id, String title, double price, int stock){
@@ -63,3 +73,5 @@ public class Producto implements Serializable {  //Necesita implementar interfaz
         this.stock = stock;
     }*/
 }
+
+

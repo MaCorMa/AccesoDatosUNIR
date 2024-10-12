@@ -1,6 +1,5 @@
-package resources;
-
 import model.Producto;
+import model.Tienda;
 
 import java.io.*;
 
@@ -70,6 +69,7 @@ public class GestorFicheros {
         try {
             objectOutputStream = new ObjectOutputStream(new DataOutputStream(new FileOutputStream(file)));
             objectOutputStream.writeObject(new Producto(1,"Camisa Blanca", 5.95, 10));
+            objectOutputStream.writeObject(new Tienda("Tienda1", 123, 8));
             objectOutputStream.writeObject(new Producto(2,"Camisa Negra", 5.95, 8));
         } catch (IOException e) {
             System.out.println("Error en fichero");
@@ -83,4 +83,24 @@ public class GestorFicheros {
         }
     }
 
+    public void lecturaObjeto(String path){
+
+        File file = new File(path);
+        ObjectInputStream objectInputStream = null;
+
+        try {
+            objectInputStream = new ObjectInputStream(new FileInputStream(file));
+            Producto producto = (Producto) objectInputStream.readObject();
+            producto.mostrarDatos();
+            Tienda tienda = (Tienda) objectInputStream.readObject();
+            tienda.mostrarDatos();
+
+        } catch (IOException e) {
+            System.out.println("Error en la lectura del fichero");
+        } catch (ClassNotFoundException e) {
+            System.out.println("No se encuentra la clase destino");
+        } catch (ClassCastException e){
+            System.out.println("Error al declarar el tipo de datos");
+        }
+    }
 }
