@@ -1,0 +1,1 @@
+Clase utilitzada per a dubtes i repàs general
