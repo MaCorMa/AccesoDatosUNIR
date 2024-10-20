@@ -1,11 +1,17 @@
 package controller;
 
+import model.Usuario;
+
 import java.io.*;
 
 public class GestionFlujo {
 
     //File, el fichero con el que se trabaja. Dependiendo del flujo de datos con el que se trabaja:
-    private File file = new File("src/main/java/resources/ejemplo.txt");
+    private File file = new File("src/main/java/resources/ejemploTPlano.txt");
+    private File fileBin = new File("src/main/java/resources/ejemploBin.bin");
+    private File fileObj = new File("src/main/java/resources/ejemploObj.txt");
+
+
         //Texto plano → .txt
             //Escritura → Output → Writer
             public void escrituraTPlano(){
@@ -91,6 +97,90 @@ public class GestionFlujo {
             }
 
         //Binario → tipo de dato (int, boolean, char...)
+            public void lecturaBinario(){
+                //File → FileInput para poner el fichero en modo escritura
+                //DataOutputStream  para control del flujo de datos
+                DataInputStream dataInputStream = null; //para poder cerrarlo después
+
+                try {
+                    dataInputStream = new DataInputStream(new FileInputStream(fileBin));
+                    char letra = dataInputStream.readChar();
+                } catch (FileNotFoundException e) {
+                    System.out.println("Fichero no encontrado");
+                } catch (IOException e) {
+                    System.out.println("Error en la lectua");
+                } finally {
+                    try {
+                        dataInputStream.close();
+                    } catch (IOException e) {
+                        System.out.println("Fallo en el cerrado del flujo de datos");
+                    }
+                }
+
+            }
+            public void escrituraBinario(){
+                //File → FileOutput → DataOutputStream
+                DataOutputStream dataOutputStream = null;  //para poder cerrar
+                try {
+                    dataOutputStream = new DataOutputStream(new FileOutputStream(fileBin));
+                    dataOutputStream.writeUTF("Esto es un ejemplo de binario");
+                } catch (FileNotFoundException e) {
+                    System.out.println("Error en la ruta del fichero");
+                } catch (IOException e) {
+                    System.out.println("Error en la escritura");
+                } finally {
+                    try {
+                        dataOutputStream.close();
+                    } catch (IOException e) {
+                        System.out.println("Error en el cerrado");
+                    }
+                }
+            }
 
         //Objeto → Object(asd, asd ,asd)
+            //File → FileInputStream → ObjectInputStream
+
+            public void lecturaObjetos(){
+
+                ObjectInputStream objectInputStream = null;
+
+                try {
+                    objectInputStream = new ObjectInputStream(new FileInputStream(fileObj));
+
+                    objectInputStream.readObject();
+                } catch (IOException e) {
+                    System.out.println("Error en la lectura");
+                } catch (ClassNotFoundException e) {
+                    System.out.println("No se encuentra la clase con la que mapear");//UID del object no encontrado
+                } finally {
+                    try {
+                        objectInputStream.close();
+                    } catch (IOException e) {
+                        System.out.println("Error en el cerrado");
+                    }
+                }
+               
+            }
+            public void escrituraObjetos(){
+                //File → FileOutputStream → ObjectOutputStream
+
+                ObjectOutputStream objectOutputStream = null;
+
+                try {
+                    objectOutputStream = new ObjectOutputStream(new FileOutputStream(fileObj));
+                    objectOutputStream.writeObject(new Usuario("Manuel", "Correcher", "mcm@unir.com"));
+                    objectOutputStream.writeObject(new Usuario("Manuel", "Correcher", "mcm@unir.com"));
+                    objectOutputStream.writeObject(new Usuario("Manuel", "Correcher", "mcm@unir.com"));
+                    objectOutputStream.writeObject(new Usuario("Manuel", "Correcher", "mcm@unir.com"));
+                } catch (IOException e) {
+                    System.out.println("Error en la escritura");
+                } finally {
+                    try {
+                        objectOutputStream.close();
+                    } catch (IOException | NullPointerException e) {   //NullPointerException ya que puede ser null
+                        System.out.println("Error al cerrar");
+                    }
+                }
+            }
+
 }

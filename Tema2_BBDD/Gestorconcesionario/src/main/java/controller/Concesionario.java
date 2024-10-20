@@ -63,7 +63,7 @@ public class Concesionario {
 
 
             // Con PreparedStatement
-            String PSquery =  String.format("INSERT INTO %s (%s, %s,%s,%s) VALUES (?,?,?,?)",
+            String PSquery =  String.format("INSERT INTO %s (%s, %s,%s,%s,%s) VALUES (?,?,?,?,?)",
                     SchemaDB.TAB_EMP,
                     SchemaDB.COL_EMP_NAME,SchemaDB.COL_EMP_SURNAME,SchemaDB.COL_EMP_MAIL,SchemaDB.COL_EMP_PHO,
                     empleado.getNombre(), empleado.getApellido(), empleado.getCorreo(), empleado.getTelefono());

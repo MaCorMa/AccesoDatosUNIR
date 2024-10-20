@@ -1,7 +1,6 @@
 import controller.Concesionario;
 import model.Empleado;
-
-import java.sql.Connection;
+import model.Tipo;
 
 public class Entrada {
 
@@ -22,7 +21,7 @@ public class Entrada {
         */
 
         Concesionario concesionario = new Concesionario();
-        concesionario.insertarTrabajador(new Empleado("Manuel","Correcher","correo@gmail.com",123456));
+        concesionario.insertarTrabajador(new Empleado("Manuel","Correcher","correo@gmail.com",123456, Tipo.INDEFINIDO));
         //concesionario.borrarUsuario(3);
 
     }

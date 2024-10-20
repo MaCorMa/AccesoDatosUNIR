@@ -7,7 +7,8 @@ public class Entrada {
         GestionFlujo gestionFlujo  = new GestionFlujo();
 
         //gestionFlujo.escrituraTPlano();
-        gestionFlujo.lecturaTPlano();
+        //gestionFlujo.lecturaTPlano();
+        //gestionFlujo.escrituraBinario();
 
     }
 

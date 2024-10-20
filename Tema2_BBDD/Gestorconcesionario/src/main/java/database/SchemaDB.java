@@ -9,11 +9,17 @@ public interface SchemaDB {
         //ex:
         String DB_NAME = "concesionario";
         String TAB_EMP = "empleados";
+    //En 2a clase se añade otra TABLA "tipos"
+        String TAB_KIN = "tipos";
         String COL_ID = "id";
         String COL_EMP_NAME = "nombre";
         String COL_EMP_SURNAME = "apellido";
         String COL_EMP_MAIL = "correo";
         String COL_EMP_PHO = "telefono";
+        //En 2a clase se añade otra tabla "tipos"
+        String COL_KIN_DES = "descripcion";
+        String COL_KIN_SIG = "siglas";
+
 
 
 
