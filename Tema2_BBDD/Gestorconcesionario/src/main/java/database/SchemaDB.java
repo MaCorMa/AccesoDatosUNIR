@@ -17,6 +17,7 @@ public interface SchemaDB {
         String COL_EMP_MAIL = "correo";
         String COL_EMP_PHO = "telefono";
         //En 2a clase se añade otra tabla "tipos"
+        String COL_EMP_KIN = "tipo";
         String COL_KIN_DES = "descripcion";
         String COL_KIN_SIG = "siglas";
 

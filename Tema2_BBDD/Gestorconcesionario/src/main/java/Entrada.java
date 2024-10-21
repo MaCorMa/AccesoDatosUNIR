@@ -21,8 +21,12 @@ public class Entrada {
         */
 
         Concesionario concesionario = new Concesionario();
-        concesionario.insertarTrabajador(new Empleado("Manuel","Correcher","correo@gmail.com",123456, Tipo.INDEFINIDO));
+        /*
+        concesionario.insertarTrabajador(new Empleado("Manuel","Correcher",
+                "correo@gmail.com", 123456, Tipo.INDEFINIDO));
+         */
         //concesionario.borrarUsuario(3);
+        concesionario.leerUsuario(1);
 
     }
 }

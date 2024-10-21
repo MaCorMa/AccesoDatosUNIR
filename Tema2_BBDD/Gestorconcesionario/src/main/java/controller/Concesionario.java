@@ -4,10 +4,7 @@ import database.DBConnection;
 import database.SchemaDB;
 import model.Empleado;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class Concesionario {
     //CRUD
@@ -65,13 +62,24 @@ public class Concesionario {
             // Con PreparedStatement
             String PSquery =  String.format("INSERT INTO %s (%s, %s,%s,%s,%s) VALUES (?,?,?,?,?)",
                     SchemaDB.TAB_EMP,
-                    SchemaDB.COL_EMP_NAME,SchemaDB.COL_EMP_SURNAME,SchemaDB.COL_EMP_MAIL,SchemaDB.COL_EMP_PHO,
-                    empleado.getNombre(), empleado.getApellido(), empleado.getCorreo(), empleado.getTelefono());
+                    SchemaDB.COL_EMP_NAME,SchemaDB.COL_EMP_SURNAME,SchemaDB.COL_EMP_MAIL,SchemaDB.COL_EMP_PHO, SchemaDB.COL_EMP_KIN,
+                    empleado.getNombre(), empleado.getApellido(), empleado.getCorreo(), empleado.getTelefono(), empleado.getTipo());
+
             PreparedStatement preparedStatement = connection.prepareStatement(PSquery);
+             /*   para meter uno a pelo
             preparedStatement.setString(1, "ManuelPS");
             preparedStatement.setString(2, "CorrecherPS");
             preparedStatement.setString(3, "correo@gmail.comPS");
             preparedStatement.setInt(4, 987654);
+            */
+            //para meter en la bbdd el que se le pase por el metodo
+            preparedStatement.setString(1, empleado.getNombre());
+            preparedStatement.setString(2, empleado.getApellido());
+            preparedStatement.setString(3, empleado.getCorreo() );
+            preparedStatement.setInt(4, empleado.getId() );
+            preparedStatement.setInt(5, empleado.getTipo().getId());
+
+
             preparedStatement.execute();
            // preparedStatement.executeUpdate();
 
@@ -96,5 +104,32 @@ public class Concesionario {
             System.out.println("Error en la query");
         }
 
+    }
+    public void leerUsuario(int tipo){
+         //No se puede mapear de forma directa → Vector[[nombre, apellido, correo],[nombre, apellido, correo],[nombre, apellido, correo]]
+        //Connection → Statement/PreparedStatement → executeQuery → ResultSet
+
+        Connection connection = new DBConnection().getConnection();
+
+        //String query = "SELECT * FROM "+SchemaDB.TAB_EMP;
+        String query = String.format("SELECT * FROM %s WHERE %s=?",SchemaDB.TAB_EMP, SchemaDB.COL_EMP_KIN);
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, tipo);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            //vamos al primer resultado
+            //resultSet.next();
+
+            while(resultSet.next()){
+                String nombre = resultSet.getString(SchemaDB.COL_EMP_NAME);
+                String correo = resultSet.getString(SchemaDB.COL_EMP_MAIL);
+                int tipo1 = resultSet.getInt(SchemaDB.COL_EMP_KIN);
+                System.out.printf("Nombre del empleado %s \n\t Correo del empleado %s\n",nombre,correo, tipo1);
+            }
+        } catch (SQLException e) {
+            System.out.println("Error en la query");
+        }
     }
 }
