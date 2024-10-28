@@ -1,5 +1,6 @@
 package controller;
 
+import dao.EmpleadoDAO;
 import database.DBConnection;
 import database.SchemaDB;
 import model.Empleado;
@@ -11,19 +12,21 @@ public class Concesionario {
     //Create, Update, Delete → Modifican la tabla
     //Read → Obtiene vector de valores
 
-
+    EmpleadoDAO empleadoDAO = new EmpleadoDAO();
     //Statement → Query directa → Insert into empleados (nombre. apellido...) VALUES ('Manuel', 'Correcher', ...)
         //True o false
         //nº filas afectadas
 
+
+    //Aquí debería ir sólamente la lógica de negocio, para gestión con la BBDD se debería usar patrón DAO
+    //Se crea clase DAO para ello, por lo que estos métodos són sólo para ejemplo
+
+
     //PrepareStatement → Query con template → Insert into empleados (nombre. apellido...) VALUES (?,?, ...)
     //setInt(4,123)→mete el Int 123 en el 4º hueco
     //setString(1, "Manuel")→mete el String "Manuel" en el 1er hueco
-    
     //aquí haremos las queries
-
     //insertar trabajador: ejemplo
-
     public void insertarTrabajador(Empleado empleado){
 
         //Con el Statement
@@ -132,4 +135,15 @@ public class Concesionario {
             System.out.println("Error en la query");
         }
     }
+
+    //métodos con patrón DAO
+    public void instarTrabajadorDAO(Empleado empleado){
+        try {
+            empleadoDAO.insertarEmpleado(empleado);
+        } catch (SQLException e) {
+            System.out.println("Error en la query");
+        }
+    }
+
+
 }
