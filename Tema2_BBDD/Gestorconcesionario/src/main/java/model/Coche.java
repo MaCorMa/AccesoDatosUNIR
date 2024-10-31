@@ -23,4 +23,11 @@ public class Coche {
         this.cv = cv;
         this.precio = precio;
     }
+    public void mostrarDatos(){
+        System.out.println("id = " + id);
+        System.out.println("marca = " + marca);
+        System.out.println("modelo = " + modelo);
+        System.out.println("cv = " + cv);
+        System.out.println("precio = " + precio);
+    }
 }

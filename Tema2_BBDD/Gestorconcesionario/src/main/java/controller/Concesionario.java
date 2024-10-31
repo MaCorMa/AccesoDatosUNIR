@@ -1,11 +1,14 @@
 package controller;
 
+import dao.CochesDAO;
 import dao.EmpleadoDAO;
 import database.DBConnection;
 import database.SchemaDB;
+import model.Coche;
 import model.Empleado;
 
 import java.sql.*;
+import java.util.Scanner;
 
 public class Concesionario {
     //CRUD
@@ -13,6 +16,7 @@ public class Concesionario {
     //Read → Obtiene vector de valores
 
     EmpleadoDAO empleadoDAO = new EmpleadoDAO();
+    CochesDAO cochesDAO = new CochesDAO();
     //Statement → Query directa → Insert into empleados (nombre. apellido...) VALUES ('Manuel', 'Correcher', ...)
         //True o false
         //nº filas afectadas
@@ -144,6 +148,53 @@ public class Concesionario {
             System.out.println("Error en la query");
         }
     }
+    public void agregarCoche(){
 
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Introduce Marca");
+        String marca = scanner.next();
+
+
+        //Si dan una marca y ya tengo X coches de una marca, no quiero comprarlo
+        //ejemplo método cochesDAO.getModeloCochesMArca
+
+         //meterlo en un objeto cocheDAO
+        try {
+            if(cochesDAO.getCochesMarca(marca).size()<2){
+                System.out.println("Introduce Modelo");
+                String modelo = scanner.next();
+                System.out.println("Introduce CV");
+                int cv = scanner.nextInt();
+                System.out.println("Introduce Precio");
+                int precio = scanner.nextInt();
+                cochesDAO.addCoche(new Coche(marca,modelo,cv,precio));
+                System.out.println("Coche agregado correctamente");
+            } else{
+                System.out.println("No interesa al concesionario");
+            }
+        } catch (SQLException e) {
+            System.out.println("BBDD no disponible, quieres guardarlo para más adelante?");
+            //guardar dato en fichero
+            
+        }
+    }
+
+    public void filtrarPrecio(){
+
+        Scanner scanner = new Scanner(System.in);
+         System.out.println("Por que precio quieres filtrar?");
+         int precio = scanner.nextInt();
+
+        try {
+            for( Coche coche:cochesDAO.getCochePrecio(precio)){
+                 coche.mostrarDatos();
+            };
+        } catch (SQLException e) {
+            System.out.println("No se puede realizar la consulta, ¿hacer otra cosa?");
+        }
+    }
+    //Funcionalidad de vender un coche -> matrícula
+    //el coche lo vende un vendedor (tengo que decir quien lo vende)
+    //funcionalidad para saber quién es el vendedor que más coches ha vendido
 
 }

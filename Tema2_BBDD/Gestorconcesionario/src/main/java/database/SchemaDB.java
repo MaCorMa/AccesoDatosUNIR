@@ -25,7 +25,7 @@ public interface SchemaDB {
         String COL_CH_MAR = "marca";
         String COL_CH_MOD = "modelo";
         String COL_CH_PRE = "precio";
-        String COL_CH_cv = "cv";
+        String COL_CH_CV = "cv";
 
 
 
