@@ -196,5 +196,22 @@ public class Concesionario {
     //Funcionalidad de vender un coche -> matrícula
     //el coche lo vende un vendedor (tengo que decir quien lo vende)
     //funcionalidad para saber quién es el vendedor que más coches ha vendido
-
+    public void realizarVenta(){
+        int idCoche=0; int idEmp=0;
+        Scanner scanner = new Scanner(System.in);
+        try {
+            System.out.println("Dime el coche que vas a vender");
+            idCoche = scanner.nextInt();
+            cochesDAO.realizarVenta(idCoche);
+        } catch (SQLException e) {
+            System.out.println("No existe el ID del coche");
+        }
+        System.out.println("Dime que vendedor ha hecho la venta");
+        idEmp =scanner.nextInt();
+        try {
+            empleadoDAO.realizarVenta(idEmp);
+        } catch (SQLException e) {
+            System.out.println("No existe el ID del empleado");
+        }
+    }
 }

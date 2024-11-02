@@ -14,6 +14,7 @@ public interface SchemaDB {
         String COL_ID = "id";
         String COL_EMP_NAME = "nombre";
         String COL_EMP_SURNAME = "apellido";
+        String COL_EMP_SALE = "ventas";
         String COL_EMP_MAIL = "correo";
         String COL_EMP_PHO = "telefono";
         //En 2a clase se añade otra tabla "tipos"
@@ -24,6 +25,7 @@ public interface SchemaDB {
         String TAB_CH = "coches";
         String COL_CH_MAR = "marca";
         String COL_CH_MOD = "modelo";
+        String COL_CH_STATUS = "estado";
         String COL_CH_PRE = "precio";
         String COL_CH_CV = "cv";
 

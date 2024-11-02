@@ -40,6 +40,16 @@ public class EmpleadoDAO {
         preparedStatement.execute();
     } //ejecutamos directamente sobre la BBDD, tenemos al DAO haciendo la gestión en lugar de desde el controller
 
+    public void realizarVenta (int id) throws SQLException {
+        String query = "UPDATE %s SET %s = %s+1 WHERE %s = ?";
+        preparedStatement = connection.prepareStatement(String.format(query,
+                SchemaDB.TAB_EMP,
+                SchemaDB.COL_EMP_SALE,
+                SchemaDB.COL_EMP_SALE,
+                SchemaDB.COL_ID));
+        preparedStatement.setInt(1,id);
+        preparedStatement.execute();
+    }
     public Empleado getEmpleado(String nombre, String apellido, String correo, int telefono, int tipo){
         Tipo tipo1 = null;
         switch (tipo){
@@ -71,5 +81,15 @@ public class EmpleadoDAO {
           return getEmpleado(nombre,apelido,correo,telefono,tipo);
       }
       return null;
+    }
+    public void obtenerEmpleadoMes() throws SQLException {
+        String query = "SELECT * FROM %s ORDER BY %s DESC LIMIT 1";
+        resultSet = connection.prepareStatement(String.format(query,SchemaDB.COL_EMP_SALE)).executeQuery();
+        while (resultSet.next()){
+            String nombre = resultSet.getString(SchemaDB.COL_EMP_NAME);
+            String apellido = resultSet.getString(SchemaDB.COL_EMP_SURNAME);
+            Empleado empleado = new Empleado(nombre, apellido);
+            empleado.mostrarDatos();
+        }
     }
 }

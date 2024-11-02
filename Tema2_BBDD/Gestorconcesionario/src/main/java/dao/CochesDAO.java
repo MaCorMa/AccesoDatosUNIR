@@ -26,7 +26,6 @@ public class CochesDAO {
     }
 
     //Añadir coche a la BBDD
-
     public void addCoche(Coche coche) throws SQLException {
         String query =  String.format("INSERT INTO %s (%s, %s, %s, %s) VALUES (?,?,?,?)",
             SchemaDB.TAB_CH,
@@ -52,7 +51,6 @@ public class CochesDAO {
 
         return  getResultados(resultSet);
     }
-
     private Coche mapearCoche(String marca, String modelo, int cv, int precio){
         return new Coche(marca,modelo,cv,precio);
     }
@@ -76,6 +74,16 @@ public class CochesDAO {
             listaResutlado.add(mapearCoche(marca, modelo, cv, precio));
         }
         return  listaResutlado;
+    }
+    public void realizarVenta(int id) throws SQLException {
+        //igual que la venta en EmpleadoDAO
+        String query = "UPDATE %s SET %s=FALSE  WHERE %s = ?";
+        preparedStatement = connection.prepareStatement(String.format(query,
+                SchemaDB.TAB_CH,
+                SchemaDB.COL_CH_STATUS,
+                SchemaDB.COL_ID));
+        preparedStatement.setInt(1, id);
+        preparedStatement.execute();
     }
 }
 
