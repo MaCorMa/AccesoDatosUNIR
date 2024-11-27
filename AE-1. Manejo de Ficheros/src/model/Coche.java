@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class Coche implements Serializable {
 
-    //Necesita implementar interfaz serializable para poder guardarse/escribirse/leerse
+    //Necesita implementar interfaz serializable para poder guardarse/escribirse/leerse como Objeto en un stream de datos
     private static final Long serialVersionUID = 12345L;
 
     //Variables private

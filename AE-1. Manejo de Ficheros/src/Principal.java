@@ -15,6 +15,7 @@ public class Principal {
         do{
             menu = printMenu();
 
+            //las opciones llaman a los metodos de la clase Concesionario
             switch (menu){
                 case 1:
                     lector.nextLine();//para consumir última línea
@@ -31,7 +32,6 @@ public class Principal {
                     }  else{
                         System.out.println("No se ha podido agregar");
                     }
-
                     break;
                 case 2:
                     System.out.print("Introduce el ID del coche a borrar: ");
@@ -64,6 +64,7 @@ public class Principal {
 
     }
 
+    //metodo imprime menú en consola para usuario
     public static int printMenu() {
         int menu = 0;
         System.out.println("MENÚ:");
