@@ -61,11 +61,12 @@ public class Coche implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Coche coche = (Coche) o;
-        return id == coche.id && Objects.equals(matricula, coche.matricula);
+        return id == coche.id;
     }
+
     @Override
     public int hashCode() {
-        return Objects.hash(id, matricula);
+        return Objects.hashCode(id);
     }
 
     @Override

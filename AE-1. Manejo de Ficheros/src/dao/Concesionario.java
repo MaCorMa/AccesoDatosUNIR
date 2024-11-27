@@ -19,21 +19,28 @@ public class Concesionario implements CocheDao {
         leeCoches("src/archivos/coches.dat");
     }
 
-    
+
     @Override
     public boolean altaCoche(Coche coche) {
-        if(lista.contains(coche)){
-            System.out.println("Coche ya existe en la lista");
-            return false;
-        }else{
-            lista.add(coche);
-            return true;
+        for (Coche carro : lista) {
+            if (carro.getId() == coche.getId()) {
+                System.out.println("Error: Ya existe un coche con el mismo ID.");
+                return false;
+            } else if (carro.getMatricula().equals(coche.getMatricula())) {
+                System.out.println("Error: Ya existe un coche con la misma matrícula.");
+                return false;
+            }
         }
+        lista.add(coche);
+        System.out.println("Coche agregado correctamente.");
+        return true;
     }
+    
     @Override
     public boolean borrarCoche(int id) {
-        if((buscaCocheId((id)))!=null){
-            lista.remove(buscaCocheId((id)));
+        Coche coche = buscaCocheId(id);
+        if(coche !=null){
+            lista.remove(coche);
             System.out.println("Coche eliminado");
             return true;
         }
@@ -45,10 +52,15 @@ public class Concesionario implements CocheDao {
     public Coche buscaCocheId(int id) {
         Coche coche = new Coche();   //se crea objeto clase coche
         coche.setId(id);   //se le pasa la id a buscar
+
         int pos = lista.indexOf(coche);  //busca con indexOf
-        if (pos!=1){   // Si no está, dará -1
+        System.out.println(pos);
+        if (pos!=-1){   // Si no está, dará -1
             return lista.get(pos);   //si está, devuelve el objeto buscado
-        }return null;
+        }else {
+            System.out.println("ID indicada no está registrada");
+            return null;
+        }
     }
 
     @Override
@@ -90,14 +102,14 @@ public class Concesionario implements CocheDao {
     public boolean exportaDat(ArrayList<Coche> lista) {
         String path = "src/archivos/coches.dat";
         try {
-            objectOutputStream = new ObjectOutputStream(new FileOutputStream(path));
+            objectOutputStream = new ObjectOutputStream(new FileOutputStream(path,false));
             objectOutputStream.writeObject(lista);
             System.out.println("Se han guardado los coches en el archivo " + path);
+            objectOutputStream.close();
+            return true;
         } catch (IOException e) {
             System.out.println("Error al guardar los coches en el archivo: " + e.getMessage());
             return false;
-        }finally {
-            return true;
         }
     }
 
@@ -105,17 +117,16 @@ public class Concesionario implements CocheDao {
     public boolean exportaCsv(ArrayList<Coche> lista) {
         String path = "src/archivos/coches.csv";
         try {
-            FileWriter fileWriter = new FileWriter(path);
-
+            FileWriter fileWriter = new FileWriter(path,false);
             for (Coche coche : lista) {
                 fileWriter.write(coche.getId() + ";" + coche.getMatricula() + ";" + coche.getMarca() + ";" + coche.getModelo() +";" + coche.getColor() +"\n");
             }
+            fileWriter.close();
+            System.out.println("Se han guardado los coches en el archivo " + path);
+            return true;
         } catch (IOException e) {
             System.out.println("Error al guardar los coches en el archivo: " + e.getMessage());
             return false;
-        }finally {
-            System.out.println("Se han guardado los coches en el archivo " + path);
-            return true;
         }
     }
-}
+    }
