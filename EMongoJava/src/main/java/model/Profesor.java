@@ -25,4 +25,15 @@ public class Profesor implements Serializable {
     private String phone;
     private ArrayList<String> subjects;
     private String title;
+
+    public Profesor(double rating, int age, String name, String gender, String email, String phone, ArrayList<String> subjects, String title) {
+        this.rating = rating;
+        this.age = age;
+        this.name = name;
+        this.gender = gender;
+        this.email = email;
+        this.phone = phone;
+        this.subjects = subjects;
+        this.title = title;
+    }
 }

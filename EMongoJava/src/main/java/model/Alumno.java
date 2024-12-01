@@ -24,4 +24,17 @@ public class Alumno implements Serializable {
     private int calification;
     private String higher_grade;
     private boolean fct;
+
+
+    public Alumno(double rating, int age, String name, String gender, String email, String phone, int calification, String higher_grade, boolean fct) {
+        this.rating = rating;
+        this.age = age;
+        this.name = name;
+        this.gender = gender;
+        this.email = email;
+        this.phone = phone;
+        this.calification = calification;
+        this.higher_grade = higher_grade;
+        this.fct = fct;
+    }
 }

@@ -1,11 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="2972cab9-2f7b-4cd5-b3f7-e182ce6cba9f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../EMongoJava/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EMongoJava/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EMongoJava/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EMongoJava/src/main/java/DBScheme.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AE-3ConectoresBBDD/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AE-3ConectoresBBDD/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AE-3ConectoresBBDD/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AE-3ConectoresBBDD/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AE-3ConectoresBBDD/src/main/java/Principal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AE-3ConectoresBBDD/src/main/java/controller/ConcesionarioE.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AE-3ConectoresBBDD/src/main/java/dao/CochesDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AE-3ConectoresBBDD/src/main/java/dao/PasajerosDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AE-3ConectoresBBDD/src/main/java/database/DBConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AE-3ConectoresBBDD/src/main/java/database/SchemaDB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AE-3ConectoresBBDD/src/main/java/model/Coche.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AE-3ConectoresBBDD/src/main/java/model/Pasajero.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ExamenManuelCorrecher/src/main/java/Principal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ExamenManuelCorrecher/src/main/java/dao/UsuarioDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ExamenManuelCorrecher/src/main/java/database/DBConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ExamenManuelCorrecher/src/main/java/database/SchemaDB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ExamenManuelCorrecher/src/main/java/model/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,21 +33,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "MaCorMa"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;MaCorMa&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/MaCorMa/AccesoDatosUNIR.git",
-    "accountId": "08ded0c4-f7a8-4304-a419-ede126a346ec"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/MaCorMa/AccesoDatosUNIR.git&quot;,
+    &quot;accountId&quot;: &quot;08ded0c4-f7a8-4304-a419-ede126a346ec&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2pTDePqMGciQpjQLOkSuijA0gvh" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -40,7 +58,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/GitHubRepos/AccesoDatosUNIR/lecturaJson"
+    "last_opened_file_path": "D:/GitHubRepos/ClaseAD-UNIR/T2/Repaso"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
