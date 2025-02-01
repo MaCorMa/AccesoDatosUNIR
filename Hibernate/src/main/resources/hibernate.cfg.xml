@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<hibernate-configuration xmlns="http://www.hibernate.org/xsd/orm/cfg">
+    <session-factory>
+        <!--Se le dan propiedades-->
+        <property name="hibernate.current_session_context_class">
+            <!--Lo que hace es crear un hilo adicional para la traducción con esa session-->
+            thread
+        </property>
+        <property name="dialect">
+            <!--Indica cómo "habla" hibernate con la BD, el dialecto de traducción con la BD-->
+            org.hibernate.dialect.MySQLDialect
+        </property>
+        <property name="connection.url">
+            <!--se le configura la connection-->
+            jdbc:mysql://127.0.0.1/hotel_unir
+        </property>
+        <property name="connection.username">root</property>
+        <property name="connection.password"/>
+        <property name="connection.driver_class">
+            <!--se indica el nombre de la clase que se usará como driver-->
+            com.mysql.cj.jdbc.Driver
+        </property>
+        <!--Se indica que clase va a mapear-->
+        <mapping class="model.Trabajador"/>
+        <mapping class="model.Direccion"/>
+        <mapping class="model.Habitacion"/>
+        <mapping class="model.Cliente"/>
+    </session-factory>
+</hibernate-configuration>

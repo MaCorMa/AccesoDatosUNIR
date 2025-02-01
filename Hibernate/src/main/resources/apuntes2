@@ -1,0 +1,59 @@
+AL HACER RELACIONES
+
+1- Identificar entidad dominante, quien va a recibir la relacion (FK), en este caso Trabajador
+
+2- Determinar el tipo de relación que es
+    @OneToOne -> un elemento de la tabla se relaciona con un elemento de la otra tabla  ->mapeado
+
+    @OneToMany -> un elemento de la tabla se relaciona con muchos de la otra tabla   ->mapeado
+
+    @ManyToOne -> muchos elementos de la tabla se relacionan con uno de la otra tabla    ->mapeado
+
+    @ManyToMany -> muchos elementos de la tabla se relacionan con muchos de la otra tabla   ->Tabla JOIN
+
+2.1 - OneToOne
+    1. En la relación dominante creo un objeto de tipo relación
+        @OneToOne (cascade=Cascade.ALL) para propagar los cambios
+        @JoinColumn(name="columna con la FK")
+        private Habitacion
+
+    2. Bidireccional en la clase con la relación no dominante
+        @OneToOne(mappedBy="nombre_propiedad_relacion_punto1"
+        private Trabajador
+
+2.2 - ManyToOne - OneToMany
+    1. En la relación dominante creo un objeto del tipo relacion
+        Unidireccional
+            @ManyToOne(cascade = CascadeType.ALL)
+            @JoinColumn(name = "id_habitacion")
+            private Habitacion habitacion;
+
+    2. En la clase con la relación no dominante
+        Bidireccional
+            @OneToMany(mappedBy="nombre_propiedad_relacion_punto1"
+            private List<Cliente> //lista ya que es OneToMany, uno a muchos(lista)
+
+2.3 - ManyToMany -> 2 JoinTable (para indicar la tabla reserva) JoinColumn (relacion dominante)- InverseJoinColumn (relacion debil)
+    unidireccional ->Sólo lo hacemos en una clase
+    bidireccional  ->Lo hacemos en ambas clases a relacionar
+
+    Hay una tercera tabla que actua como relacional
+        un empleado puede gestionar muchas reservas donde en cada reserva hay un cliente
+        un cliente puede ser atendido por muchos trabajadores, ya que puede hacer varias reservas
+
+        muchos trabajadores se relacionan con muchos clientes
+
+        ClaseA
+        @ManyToMany(EAGER)
+        @JoinTable(name="nombre_tabla_auxiliar"),joinColumn=@JoinCOlumn(name="nombre_fk1"),
+                                                 inverseJoinColumn=@JoinColumn(name="nombre_fk2")
+        private List<ClaseB>listaB
+
+        ClaseB
+        @ManyToMany(mappedBy="listaB",fetch=FetchType.EAGER)  -> nombre del atributo que guarda la relación en la entidad dominante
+        private List<ClaseA>listaA
+
+
+    Hacer una INSERCIÓN
+    1-> 7
+    7-> 1

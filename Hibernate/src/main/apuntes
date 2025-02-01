@@ -1,0 +1,78 @@
+Programa --- ORM --- Hibernate --- HQL --- BBDD
+               driver mysql            configuracion (xml)
+
+        OBJETO                          SQL
+
+OBJETO -> CLASS (queremos llevarlo a una tabla)
+ex. Trabajador(class)              →             empleados(tabla)
+
+
+sessionFactory → connection
+    new Hibernate().getSessionFactory()→ Da una copa del session factory actual con las conf del archivo cfg
+session → currentSession
+beginTransaction
+    save -- persist s.persist(new Trabajador(""))
+    get -- s.get(clase_mapeo, id) -> objeto del tipo clase_mapeo
+    update  -- primero obtener objeto con get, actualizo con setter y actualizo con el merge
+    delete
+
+commit → autoCommit(true)
+close session
+
+
+
+PASOS:
+
+1. Crear el modelo de datos →
+        Clase Trabajador
+        Los modelos deben cumplir:
+            - Todos los atributos privados
+            - Constructor con todo y sin vacio
+            - La clase debe ser serializable
+            - getter & setter
+
+2. Crear un archivo de conf para la BD e hibernate con el nombre "hibernate.cfg.xml"
+indica a hibernate como hacer la traducción y con qué BD hacerla
+como se conecta hibernate con la BD y como se traducen los modelos
+
+3. Crear un Singleton con la creación del SessionFactory para que sea único
+(para que no se pueda duplicar el objeto correspondiente)
+
+4. Modificar el modelo de datos
+se le da un @Entity y un @Table
+@Entity -> indica que el objeto irá a una tabla
+@Table -> indica que a la tabla el nombre de la clase, si no es el mismo se indica con el atributo (name="nombreTabla")
+
+Al ser serializable y poderse enviar a trozos, se puede usar el decorador @column para indicar a qué tabla va cada atributo
+    Ejemplo:
+        @Column //(name="name")en caso de que no tuviera el mismo nombre que en la bbdd
+        private String nombre;
+        @Column
+        private String apellido;
+        @Column
+        private String direccion;
+        @Column
+        private String telefono;
+
+Si el atributo el PK, se le indica con el decorador @ID
+@GeneratedValue -> indica que el campo está generado por la BD
+
+5. Mapping
+en el archivo xml de configuración es necesario poner la propiedad mapping, 1 por cada clase.
+
+
+Decorador @Entity
+Indica que se trata de un objeto a manejar desde programación
+
+Decorador @Embeddable
+Indica que la entidad se pondra como propiedad dentro de otra @Entity
+
+Decorador @Embedded
+Indica que el atributo tiene que ser buscado en la clase donde esta definido (@Embeddable)
+
+Decorador @AttributeOverrides({@AttributeOverride(name="atributo", column=(@Column(name=""))})
+modifica el atributo y lo lleva a la columna que queremos en la bd
+
+
+Si las querys son recurrentes -> namedQuery -> van asociadas al Objeto
+
