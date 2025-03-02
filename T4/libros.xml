@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Sólo puede haber un nodo root-->
+<libreria id="1" tipo="tecnologia"> <!--Nombre BBDD-->
+    <libros cateroria= "ciencia ficcion">
+        <libro isbd="123A" idioma="en" paginas="200">
+            <titulo>
+                Harry Potter
+            </titulo>
+            <autor>
+                J.K. Rowling
+            </autor>
+            <precio moneda="EUR">
+                25.90
+            </precio>
+        </libro>
+    </libros>
+    <libros cateroria= "sociedad">
+    </libros>
+    <revistas cateroria="entretenimiento">
+    </revistas>
+    <revistas cateroria="psdstiempos">
+        <revista>
+        </revista>
+    </revistas>
+</libreria>

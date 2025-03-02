@@ -1,0 +1,10 @@
+JavaFX
+    Parte grafica -> .fxml
+    Logica -> .java
+
+
+Stage -> ventana
+Scene -> contenido de la ventana + controller
+Node -> Elementos dentro de la scene
+        pueden verse -> button listview spinner combo table
+        no pueden verse -> Pane (como layout en android)

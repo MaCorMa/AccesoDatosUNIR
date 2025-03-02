@@ -1,0 +1,35 @@
+XML -> NODOS -> NODO CONTENIDO -> NODO ATRIBUTO -> NODO TEXTO
+
+BASEX -> BÚSQUEDAS (XPATH)  (XQUERY FLWOR ->FOR, LET, WHERE, ORDER BY, RETURN)
+
+XSL -> BÚSQUEDA -> HTML
+
+FOREACH -> Recorre todos los nodos
+
+        for -> foreach -> donde se quiere ahcer la busqueda
+
+        let -> variable -> para cada iteracion
+
+        where -> comprobacion
+
+        order by -> ordenacion
+
+        return -> salida
+
+
+
+WHEN -> Selecciona un caso concreto
+    CHOOSE -> el caso concreto del when (basicamente un switch(){case})
+
+
+
+
+IF -> Comprueba una condicion lógica
+
+
+
+
+VALUE -> Obtiene un dato concreto (atributo o texto)
+
+
+
