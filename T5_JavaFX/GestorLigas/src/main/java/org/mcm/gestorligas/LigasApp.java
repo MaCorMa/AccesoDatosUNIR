@@ -10,7 +10,7 @@ import java.io.IOException;
 public class LigasApp extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(LigasApp.class.getResource("login-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(LigasApp.class.getResource("main-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());  //,width , height)
         stage.setTitle("Hello!");
         stage.setScene(scene);

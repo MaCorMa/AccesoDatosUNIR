@@ -46,6 +46,5 @@ public class DetailController implements Initializable {
 
     private void instancias() {
         jugadorDAO = new JugadorDao();
-
     }
 }

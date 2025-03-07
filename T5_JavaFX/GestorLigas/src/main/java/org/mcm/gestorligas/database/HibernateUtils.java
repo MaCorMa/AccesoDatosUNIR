@@ -11,12 +11,12 @@ public class HibernateUtils {
     
     public SessionFactory getSessionFactory(){
         if(sessionFactory == null){
-            createSessionFactiry();
+            createSessionFactory();
         }
         return sessionFactory;
     }
 
-    private void createSessionFactiry() {
+    private void createSessionFactory() {
         //TODO crear file asociado a los productos
         File file = new File("src/main/resources/org/mcm/gestorligas/hibernate.cfg.xml");
         sessionFactory = new Configuration().configure(file).buildSessionFactory();

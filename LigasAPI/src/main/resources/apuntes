@@ -1,0 +1,8 @@
+queryParams
+
+https//miapi.com/users/add?nombre="asdasd"&apellido="asdasdsd"->requestParams //queryparams
+Para búsquedas y filtros -> Poco seguros ya que se ven los parametros
+
+
+Body params -> mas seguro,se pasa un json. Se usa para inserciones, borrados, updates
+https//miapi.com/users/add

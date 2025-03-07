@@ -71,7 +71,7 @@ public class MainController implements Initializable {
         });
         menuAutor.setOnAction(event -> {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("El autor de la aplicación es Borja Martin");
+            alert.setContentText("El autor de la aplicación es Manuel Correcher");
             alert.setTitle("Ayuda");
             alert.showAndWait();
         });
@@ -85,8 +85,8 @@ public class MainController implements Initializable {
                 Scene scene = new Scene(root);
                 Stage stage = new Stage();
                 stage.setScene(scene);
-                stage.initModality(Modality.WINDOW_MODAL);
-                stage.initOwner(btnVolver.getScene().getWindow());
+                stage.initModality(Modality.WINDOW_MODAL);//sólo se ejecuta la de debajo si se cierra esta->MODAL
+                stage.initOwner(btnVolver.getScene().getWindow());//indicar que pertenece a la ventana anterior
                 stage.showAndWait();
             } catch (IOException e) {
                 throw new RuntimeException(e);

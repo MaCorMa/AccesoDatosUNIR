@@ -9,22 +9,20 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="org.mcm.gestorligas.controller.MainController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.mcm.gestorligas.controller.MainController">
     <top>
         <MenuBar BorderPane.alignment="CENTER">
             <menus>
                 <Menu mnemonicParsing="false" text="Acciones">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Borrar" fx:id="menuBorrar"/>
-                        <MenuItem mnemonicParsing="false" text="Añadir" fx:id="menuAnadir"/>
+                        <MenuItem fx:id="menuBorrar" mnemonicParsing="false" text="Borrar" />
+                        <MenuItem fx:id="menuAnadir" mnemonicParsing="false" text="Añadir" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Ayuda">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Ver autor" fx:id="menuAutor"/>
-                        <MenuItem mnemonicParsing="false" text="Salir" fx:id="menuSalir"/>
+                        <MenuItem fx:id="menuAutor" mnemonicParsing="false" text="Ver autor" />
+                        <MenuItem fx:id="menuSalir" mnemonicParsing="false" text="Salir" />
                     </items>
                 </Menu>
 
@@ -46,9 +44,9 @@
                 <TableColumn fx:id="columnaNacionalidad" prefWidth="75.0" text="Nacionalidad" />
                 <TableColumn fx:id="columnaGoles" prefWidth="75.0" text="Nº goles" />
             </columns>
-            <columnResizePolicy>
-                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-            </columnResizePolicy>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
         </TableView>
     </center>
 </BorderPane>
