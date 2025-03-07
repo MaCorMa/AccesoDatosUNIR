@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>ExamenAD2Ev</artifactId>
+	<artifactId>ExamenAD2EvManuelCorrecher</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ExamenAD2Ev</name>
 	<description>Examen 2a Evaluación AD UNIR Manuel Correcher</description>
